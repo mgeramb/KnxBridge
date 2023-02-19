@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<KNX xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" CreatedBy="KNX MT" ToolVersion="5.1.255.16695" xmlns="http://knx.org/xml/project/20">
+	<ManufacturerData>
+		<Manufacturer RefId="M-00FA">
+			<Catalog>
+				<CatalogSection Id="M-00FA_CS-1" Name="Geräte" Number="1" DefaultLanguage="de">
+					<CatalogItem Id="M-00FA_H-1-1_HP-0001-01-0000_CI-MGKB1-1" Name="KNX Bridge" Number="1" ProductRefId="M-00FA_H-1-1_P-MGKB1" Hardware2ProgramRefId="M-00FA_H-1-1_HP-0001-01-0000" DefaultLanguage="de" />
+				</CatalogSection>
+			</Catalog>
+			<ApplicationPrograms>
+				<ApplicationProgram Id="M-00FA_A-0001-01-0000" ApplicationNumber="1" ApplicationVersion="1" ProgramType="ApplicationProgram" MaskVersion="MV-07B0" Name="KNX Bridge" LoadProcedureStyle="MergedProcedure" PeiType="0" DefaultLanguage="de" DynamicTableManagement="false" Linkable="false" MinEtsVersion="5.0" ReplacesVersions="1">
+					<Static>
+						<Code>
+							<RelativeSegment Id="M-00FA_A-0001-01-0000_RS-04-00000" Name="Parameters" Size="131" LoadStateMachine="4" Offset="0" />
+						</Code>
+						<ParameterTypes>
+							<ParameterType Id="M-00FA_A-0001-01-0000_PT-WiFiSSID" Name="WiFiSSID">
+								<TypeText SizeInBit="256" />
+							</ParameterType>
+							<ParameterType Id="M-00FA_A-0001-01-0000_PT-WiFiPassword" Name="WiFiPassword">
+								<TypeText SizeInBit="512" />
+							</ParameterType>
+							<ParameterType Id="M-00FA_A-0001-01-0000_PT-DeviceType" Name="DeviceType">
+								<TypeRestriction Base="Value" SizeInBit="8">
+									<Enumeration Text="Schalter" Value="0" Id="M-00FA_A-0001-01-0000_PT-DeviceType_EN-0" />
+									<Enumeration Text="Dimmer" Value="1" Id="M-00FA_A-0001-01-0000_PT-DeviceType_EN-1" />
+								</TypeRestriction>
+							</ParameterType>
+							<ParameterType Id="M-00FA_A-0001-01-0000_PT-DeviceName" Name="DeviceName">
+								<TypeText SizeInBit="240" />
+							</ParameterType>
+							<ParameterType Id="M-00FA_A-0001-01-0000_PT-DeviceStartTimeInSeconds" Name="DeviceStartTimeInSeconds">
+								<TypeNumber SizeInBit="32" Type="signedInt" minInclusive="0" maxInclusive="60" />
+							</ParameterType>
+						</ParameterTypes>
+						<Parameters>
+							<Parameter Id="M-00FA_A-0001-01-0000_P-1" Name="DeviceStartTime" ParameterType="M-00FA_A-0001-01-0000_PT-DeviceStartTimeInSeconds" Text="Geräteanlaufzeit [s]" Value="5">
+								<Memory CodeSegment="M-00FA_A-0001-01-0000_RS-04-00000" Offset="0" BitOffset="0" />
+							</Parameter>
+							<Parameter Id="M-00FA_A-0001-01-0000_P-2" Name="WiFiSSID" ParameterType="M-00FA_A-0001-01-0000_PT-WiFiSSID" Text="WiFi SSID" Value="SSID">
+								<Memory CodeSegment="M-00FA_A-0001-01-0000_RS-04-00000" Offset="4" BitOffset="0" />
+							</Parameter>
+							<Parameter Id="M-00FA_A-0001-01-0000_P-3" Name="WiFiPassword" ParameterType="M-00FA_A-0001-01-0000_PT-WiFiPassword" Text="WiFi Password" Value="Password">
+								<Memory CodeSegment="M-00FA_A-0001-01-0000_RS-04-00000" Offset="36" BitOffset="0" />
+							</Parameter>
+							<Parameter Id="M-00FA_A-0001-01-0000_P-4" Name="Device1Type" ParameterType="M-00FA_A-0001-01-0000_PT-DeviceType" Text="Gerät 1 Type" Value="1">
+								<Memory CodeSegment="M-00FA_A-0001-01-0000_RS-04-00000" Offset="100" BitOffset="0" />
+							</Parameter>
+							<Parameter Id="M-00FA_A-0001-01-0000_P-5" Name="Device1Name" ParameterType="M-00FA_A-0001-01-0000_PT-DeviceName" Text="Gerät 1 Name" Value="Dimmer 1">
+								<Memory CodeSegment="M-00FA_A-0001-01-0000_RS-04-00000" Offset="101" BitOffset="0" />
+							</Parameter>
+						</Parameters>
+						<ParameterRefs>
+							<ParameterRef Id="M-00FA_A-0001-01-0000_P-1_R-1" RefId="M-00FA_A-0001-01-0000_P-1" />
+							<ParameterRef Id="M-00FA_A-0001-01-0000_P-2_R-2" RefId="M-00FA_A-0001-01-0000_P-2" />
+							<ParameterRef Id="M-00FA_A-0001-01-0000_P-3_R-3" RefId="M-00FA_A-0001-01-0000_P-3" />
+							<ParameterRef Id="M-00FA_A-0001-01-0000_P-4_R-4" RefId="M-00FA_A-0001-01-0000_P-4" />
+							<ParameterRef Id="M-00FA_A-0001-01-0000_P-5_R-5" RefId="M-00FA_A-0001-01-0000_P-5" />
+						</ParameterRefs>
+						<ComObjectTable>
+							<ComObject Id="M-00FA_A-0001-01-0000_O-1" Name="Gerät 1 Schalten" Text="Gerät 1 Schalten" Number="1" FunctionText="Gerät 1 Schalten" ObjectSize="1 Bit" ReadFlag="Disabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
+							<ComObject Id="M-00FA_A-0001-01-0000_O-2" Name="Gerät 1 Schalten Rückmeldung" Text="Gerät 1 Schalten Rückmeldung" Number="2" FunctionText="Gerät 1 Schalten Rückmeldung" ObjectSize="1 Bit" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
+							<ComObject Id="M-00FA_A-0001-01-0000_O-3" Name="Gerät 2 Dimmer" Text="Gerät 2 Dimmer" Number="3" FunctionText="Gerät 2 Dimmer" ObjectSize="1 Byte" ReadFlag="Disabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
+							<ComObject Id="M-00FA_A-0001-01-0000_O-4" Name="Gerät 2 Dimmer Rückmeldung" Text="Gerät 2 Dimmer Rückmeldung" Number="4" FunctionText="Gerät 2 Dimmer Rückmeldung" ObjectSize="1 Byte" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
+						</ComObjectTable>
+						<ComObjectRefs>
+							<ComObjectRef Id="M-00FA_A-0001-01-0000_O-1_R-1" RefId="M-00FA_A-0001-01-0000_O-1" />
+							<ComObjectRef Id="M-00FA_A-0001-01-0000_O-2_R-2" RefId="M-00FA_A-0001-01-0000_O-2" />
+							<ComObjectRef Id="M-00FA_A-0001-01-0000_O-3_R-3" RefId="M-00FA_A-0001-01-0000_O-3" />
+							<ComObjectRef Id="M-00FA_A-0001-01-0000_O-4_R-4" RefId="M-00FA_A-0001-01-0000_O-4" />
+						</ComObjectRefs>
+						<AddressTable MaxEntries="65535" />
+						<AssociationTable MaxEntries="65535" />
+						<LoadProcedures>
+							<LoadProcedure MergeId="2">
+								<LdCtrlRelSegment AppliesTo="full" LsmIdx="4" Size="131" Mode="1" Fill="0" />
+								<LdCtrlRelSegment AppliesTo="par" LsmIdx="4" Size="131" Mode="0" Fill="0" />
+							</LoadProcedure>
+							<LoadProcedure MergeId="4">
+								<LdCtrlWriteRelMem AppliesTo="full,par" ObjIdx="4" Offset="0" Size="131" Verify="true" />
+							</LoadProcedure>
+							<LoadProcedure MergeId="7">
+								<LdCtrlLoadImageProp ObjIdx="4" PropId="27" />
+							</LoadProcedure>
+						</LoadProcedures>
+						<Options />
+					</Static>
+					<Dynamic>
+						<ChannelIndependentBlock>
+							<ParameterBlock Id="M-00FA_A-0001-01-0000_PB-1" Name="CommonParameter" Text="Allgemein">
+								<ParameterRefRef RefId="M-00FA_A-0001-01-0000_P-1_R-1" />
+								<ParameterRefRef RefId="M-00FA_A-0001-01-0000_P-2_R-2" />
+								<ParameterRefRef RefId="M-00FA_A-0001-01-0000_P-3_R-3" />
+								<ComObjectRefRef RefId="M-00FA_A-0001-01-0000_O-1_R-1" />
+								<ComObjectRefRef RefId="M-00FA_A-0001-01-0000_O-2_R-2" />
+								<ComObjectRefRef RefId="M-00FA_A-0001-01-0000_O-3_R-3" />
+								<ComObjectRefRef RefId="M-00FA_A-0001-01-0000_O-4_R-4" />
+							</ParameterBlock>
+							<ParameterBlock Id="M-00FA_A-0001-01-0000_PB-2" Name="Devices" Text="Geräte">
+								<ParameterRefRef RefId="M-00FA_A-0001-01-0000_P-4_R-4" />
+								<ParameterRefRef RefId="M-00FA_A-0001-01-0000_P-5_R-5" />
+							</ParameterBlock>
+						</ChannelIndependentBlock>
+					</Dynamic>
+				</ApplicationProgram>
+			</ApplicationPrograms>
+			<Hardware>
+				<Hardware Id="M-00FA_H-1-1" Name="KNX Bridge" SerialNumber="1" VersionNumber="1" BusCurrent="10" HasIndividualAddress="true" HasApplicationProgram="true">
+					<Products>
+						<Product Id="M-00FA_H-1-1_P-MGKB1" Text="KNX Bridge" OrderNumber="MGKB1" IsRailMounted="false" DefaultLanguage="de">
+							<RegistrationInfo RegistrationStatus="Registered" />
+						</Product>
+					</Products>
+					<Hardware2Programs>
+						<Hardware2Program Id="M-00FA_H-1-1_HP-0001-01-0000" MediumTypes="MT-0">
+							<ApplicationProgramRef RefId="M-00FA_A-0001-01-0000" />
+							<RegistrationInfo RegistrationStatus="Registered" RegistrationNumber="0001/11" />
+						</Hardware2Program>
+					</Hardware2Programs>
+				</Hardware>
+			</Hardware>
+		</Manufacturer>
+	</ManufacturerData>
+</KNX>
