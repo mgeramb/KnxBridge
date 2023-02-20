@@ -15,7 +15,7 @@ DimmerDevice::DimmerDevice(Espalexa& espalexa, uint16_t& goOffset, uint32_t& par
     deviceInstances.push_back(this);
     readKnxParameterString("DeviceName", parameterAddress, deviceName, sizeof(deviceName));
     goOffset += NUMBER_OF_GOS;
-    espAlexaDevice = new EspalexaDevice("Light 1", anyDeviceChanged, EspalexaDeviceType::dimmable); 
+    espAlexaDevice = new EspalexaDevice(deviceName, anyDeviceChanged, EspalexaDeviceType::dimmable); 
     // Define your devices here. 
     espalexa.addDevice(espAlexaDevice); //simplest definition, default state off
 }
@@ -34,12 +34,13 @@ void DimmerDevice::deviceChanged()
 {
     Serial.print(name);
     Serial.println(" device receive changed");
-    float percent = ((float) espAlexaDevice->getValue() / 2.55f);
-    if (percent > 100)
-        percent = 100;
-    uint8_t bytePercent = (uint8_t) percent;
-    goSet(GO_DIMMER, bytePercent, true);
-    goSet(GO_SWITCH, bytePercent > 0, true);
+    float value = espAlexaDevice->getValue();
+    float percentValue = value / 2.55;
+    if (percentValue > 100)
+        percentValue = 100;
+    uint8_t knxValue = percentValue; 
+    goSet(GO_DIMMER, knxValue, true);
+    goSet(GO_SWITCH, knxValue > 0, true);
 }
 
 DimmerDevice::~DimmerDevice()
@@ -72,11 +73,11 @@ void DimmerDevice::received(GroupObject& groupObject)
     }
     if (isGo(groupObject, GO_DIMMER_FEEDBACK))
     {
-        goSetWithoutSend(GO_DIMMER, goGet(GO_DIMMER_FEEDBACK));
-        float dimmerValue = goGet(GO_DIMMER_FEEDBACK);
+        uint8_t dimmerValue = goGet(GO_DIMMER_FEEDBACK);
+        goSetWithoutSend(GO_DIMMER, dimmerValue);
         float value = dimmerValue * 2.55f;
-        if (value > 100)
-            value = 100;
+        if (value > 255)
+            value = 255;
         espAlexaDevice->setValue(value);
     }
 }
