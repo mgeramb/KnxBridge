@@ -1,20 +1,28 @@
 #pragma once
 #include "component.h"
-#include <Espalexa.h>
 
-class DimmerDevice : Component
+class KnxDimmerDevice;
+
+class IDimmerInterface
 {
     public:
-        static std::list<DimmerDevice*> deviceInstances;   
+    virtual void initialize(KnxDimmerDevice* dimmerDevice) = 0;
+    virtual void setBrightness(int brightness) = 0;
+    virtual void setPower(bool on) = 0;
+    virtual bool getPower() = 0; 
+    virtual int getBrightness() = 0;  
+};
+
+class KnxDimmerDevice : Component
+{
+    public:
         char deviceName[30 + 1]; // One more then chars for ending 0
-        EspalexaDevice* espAlexaDevice;
-        DimmerDevice(Espalexa& espalexa, uint16_t& goOffset, uint32_t& parameterAddress);
-        ~DimmerDevice();
+        IDimmerInterface* dimmerInterface;
+        KnxDimmerDevice(IDimmerInterface* dimmerInterface, uint16_t& goOffset, uint32_t& parameterAddress);
     protected:
         virtual void loop(unsigned long now, bool initalize);
         virtual void received(GroupObject& groupObject);
 
-        //callback functions
-        static void anyDeviceChanged(EspalexaDevice* changedDevice);
-        void deviceChanged();
+        public:
+            void deviceChanged();
 };

@@ -4,19 +4,12 @@
 #else
 #include <ESP8266WiFi.h>
 #endif
+#include "KnxBridgeDevice.h"
 #include "KnxDimmerDevice.h"
+#include "HomeKitBridge.h"
+#include "HomeKitDimmer.h"
 
 u_int8_t startTimeInMilliseconds = 0;
-// prototypes
-
-
-char ssid[32 + 1]; // One more then chars for ending 0
-char password[64 + 1]; // One more then chars for ending 0
-
-boolean wifiConnected = false;
-
-Espalexa espalexa;
-
 
 void progLedOn()
 {
@@ -77,12 +70,11 @@ void setup()
     Serial.println(startTimeInMilliseconds);
     parameterAddress += 4;
 
-    Component::readKnxParameterString("Global", "SSID", parameterAddress, ssid, sizeof(ssid));
-    Component::readKnxParameterString("Global", "Password", parameterAddress, password, sizeof(password));
+    new KnxBridgeDevice(new HomeKitBridge(), goOffset, parameterAddress);
 
     uint8_t deviceType = knx.paramByte(parameterAddress);
     parameterAddress +=1;
-    new DimmerDevice(espalexa, goOffset, parameterAddress);
+    new KnxDimmerDevice(new HomeKitDimmer(), goOffset, parameterAddress);
    
   }
 
@@ -90,15 +82,6 @@ void setup()
   knx.start();
   Serial.println("KNX framework started"); 
 
-  if (knx.configured())
-  {
-    WiFi.mode(WIFI_STA);
-
-    WiFi.begin(ssid, password);
-    Serial.print("Connecting to WiFi ");
-    Serial.print(ssid);
-    Serial.println("...");
-  }
 }
 
 bool initializeHue = true;
@@ -130,21 +113,5 @@ void loop()
   
   initalizeKnx = false;
 
-  if (WiFi.status() == WL_CONNECTED) 
-  {
-    if (initializeHue)
-    {
-      initializeHue = false;
-      Serial.print("WiFi connected to ");
-      Serial.println(ssid);
-      Serial.print("IP address: ");
-      Serial.println(WiFi.localIP());
-
-      espalexa.begin();
-    } 
-    espalexa.loop();
-  }
-
- 
 }
 
