@@ -18,7 +18,8 @@ class KnxBridgeDevice : Component
         char ssid[32 + 1]; // One more then chars for ending 0
         char password[64 + 1]; // One more then chars for ending 0
 
-        char deviceName[30 + 1]; // One more then chars for ending 0
+        char deviceName[20 + 1]; // One more then chars for ending 0
+        char pairingCode[8 + 1]; // One more then chars for ending 0
         KnxBridgeDevice(IBridgeInterface* bridgeInterface, uint16_t& goOffset, uint32_t& parameterAddress);
 
    protected:

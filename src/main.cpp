@@ -5,8 +5,11 @@
 #include <ESP8266WiFi.h>
 #endif
 #include "KnxBridgeDevice.h"
+#include "KnxSwitchDevice.h"
 #include "KnxDimmerDevice.h"
+
 #include "HomeKitBridge.h"
+#include "HomeKitSwitch.h"
 #include "HomeKitDimmer.h"
 
 u_int8_t startTimeInMilliseconds = 0;
@@ -14,10 +17,10 @@ u_int8_t startTimeInMilliseconds = 0;
 void progLedOn()
 {
   Serial.println("Prog LED ON");
-#if LED_BUILTIN == 1  // GPIO1 is used for serial TX, to turn on the LED, the serial communication must be stopped
+#if LED_BUILTIN == 1 // GPIO1 is used for serial TX, to turn on the LED, the serial communication must be stopped
   Serial.flush(true);
   Serial.end(true);
-  pinMode (LED_BUILTIN, OUTPUT);
+  pinMode(LED_BUILTIN, OUTPUT);
 #endif
   digitalWrite(LED_BUILTIN, false);
 }
@@ -25,7 +28,7 @@ void progLedOn()
 void progLedOff()
 {
   digitalWrite(LED_BUILTIN, true);
-#if LED_BUILTIN == 1  // GPIO1 is used for serial TX, it can be used now again for serial communication
+#if LED_BUILTIN == 1 // GPIO1 is used for serial TX, it can be used now again for serial communication
   Serial.begin(115200);
   Serial.println();
 #endif
@@ -34,13 +37,13 @@ void progLedOff()
 
 ICACHE_RAM_ATTR void programButtonPressed()
 {
-    // Debounce
-    static uint32_t lastpressed=0;
-    if (millis() - lastpressed > 200)
-    {
-        knx.toggleProgMode();
-        lastpressed = millis();
-    }
+  // Debounce
+  static uint32_t lastpressed = 0;
+  if (millis() - lastpressed > 200)
+  {
+    knx.toggleProgMode();
+    lastpressed = millis();
+  }
 }
 
 void setup()
@@ -72,16 +75,43 @@ void setup()
 
     new KnxBridgeDevice(new HomeKitBridge(), goOffset, parameterAddress);
 
-    uint8_t deviceType = knx.paramByte(parameterAddress);
-    parameterAddress +=1;
-    new KnxDimmerDevice(new HomeKitDimmer(), goOffset, parameterAddress);
-   
+    // Start loop with 2, because device 1 is the bridge
+    int devices = 25;
+    int start = 2;
+    for (int device = start; device < start + devices; device++)
+    {
+
+      uint8_t deviceType = knx.paramByte(parameterAddress);
+      parameterAddress += 1;
+      if (deviceType > 0)
+      {
+        Serial.print("Device ");
+        Serial.print(device - start + 1);
+        Serial.print(" ");
+      }
+
+      switch (deviceType)
+      {
+      case 1:
+        Serial.println("Switch");
+        new KnxSwitchDevice(new HomeKitSwitch(device), goOffset, parameterAddress);
+        break;
+
+      case 2:
+        Serial.println("Dimmer");
+        new KnxDimmerDevice(new HomeKitDimmer(device), goOffset, parameterAddress);
+        break;
+
+      default:
+        goOffset += 4;
+        break;
+      }
+    }
   }
 
   Serial.println("Start KNX framework");
   knx.start();
-  Serial.println("KNX framework started"); 
-
+  Serial.println("KNX framework started");
 }
 
 bool initializeHue = true;
@@ -93,14 +123,13 @@ void loop()
   if (now == 0)
     now = 1; // Never use 0, it's used for marker
 
-  
   knx.loop();
 
   if (!knx.configured())
     return;
   if (knx.progMode())
     return;
-  
+
   if (startTimeInMilliseconds != 0)
   {
     if (now < startTimeInMilliseconds)
@@ -108,10 +137,8 @@ void loop()
     startTimeInMilliseconds = 0;
     Serial.println("Start device");
     Serial.println(initalizeKnx);
-  } 
+  }
   Component::loopAll(now, initalizeKnx);
-  
+
   initalizeKnx = false;
-
 }
-

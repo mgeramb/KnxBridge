@@ -4,6 +4,7 @@
 
 class HomeKitDimmer : public IDimmerInterface
 {
+    int device;
     KnxDimmerDevice *dimmerDevice;
     Characteristic::On *power;
     Characteristic::Brightness *level;
@@ -20,6 +21,7 @@ class HomeKitDimmer : public IDimmerInterface
         }
     };
 public:
+    HomeKitDimmer(int device);
     void initialize(KnxDimmerDevice *dimmerDevice);
 
     boolean update();

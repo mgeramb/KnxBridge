@@ -1,24 +1,22 @@
 #pragma once
 #include "component.h"
 
-class KnxDimmerDevice;
+class KnxSwitchDevice;
 
-class IDimmerInterface
+class ISwitchInterface
 {
     public:
-    virtual void initialize(KnxDimmerDevice* dimmerDevice) = 0;
-    virtual void setBrightness(int brightness) = 0;
+    virtual void initialize(KnxSwitchDevice* SwitchDevice) = 0;
     virtual void setPower(bool on) = 0;
     virtual bool getPower() = 0; 
-    virtual int getBrightness() = 0;  
 };
 
-class KnxDimmerDevice : Component
+class KnxSwitchDevice : Component
 {
     public:
         char deviceName[20 + 1]; // One more then chars for ending 0
-        IDimmerInterface* dimmerInterface;
-        KnxDimmerDevice(IDimmerInterface* dimmerInterface, uint16_t& goOffset, uint32_t& parameterAddress);
+        ISwitchInterface* switchInterface;
+        KnxSwitchDevice(ISwitchInterface* switchInterface, uint16_t& goOffset, uint32_t& parameterAddress);
     protected:
         virtual void loop(unsigned long now, bool initalize);
         virtual void received(GroupObject& groupObject);

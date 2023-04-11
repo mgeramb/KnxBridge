@@ -1,9 +1,14 @@
 #include "HomeKitDimmer.h"
 
+HomeKitDimmer::HomeKitDimmer(int device) :
+    device(device)
+{
+}
+
 void HomeKitDimmer::initialize(KnxDimmerDevice *dimmerDevice)
 {
     this->dimmerDevice = dimmerDevice;
-    new SpanAccessory();
+    new SpanAccessory(device);
         new Service::AccessoryInformation();
         new Characteristic::Identify();
         new Characteristic::Name(dimmerDevice->deviceName);

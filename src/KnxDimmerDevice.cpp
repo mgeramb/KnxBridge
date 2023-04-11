@@ -10,7 +10,7 @@
 
 
 KnxDimmerDevice::KnxDimmerDevice(IDimmerInterface* dimmerInterface, uint16_t &goOffset, uint32_t &parameterAddress)
-    : Component((const char *)"", goOffset),
+    : Component((const char *)deviceName, goOffset),
     dimmerInterface(dimmerInterface)
 {
     readKnxParameterString("DeviceName", parameterAddress, deviceName, sizeof(deviceName));
@@ -32,8 +32,8 @@ void KnxDimmerDevice::deviceChanged()
     Serial.print("Power: ");
     Serial.println(power);
     uint8_t knxValue = percentValue;
-    goSet(GO_DIMMER, knxValue, true);
-    goSet(GO_SWITCH, knxValue > 0, true);
+    goSet(GO_DIMMER, knxValue, false);
+    goSet(GO_SWITCH, knxValue > 0, false);
 }
 
 void KnxDimmerDevice::loop(unsigned long now, bool initalize)
