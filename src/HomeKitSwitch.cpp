@@ -18,7 +18,7 @@ void HomeKitSwitch::initialize(KnxSwitchDevice *switchDevice)
 
 boolean HomeKitSwitch::update()
 {
-    switchDevice->deviceChanged();
+    switchDevice->deviceChanged(this);
     return (true);
 }
 

@@ -83,32 +83,39 @@ void setup()
 
       uint8_t deviceType = knx.paramByte(parameterAddress);
       parameterAddress += 1;
-      if (deviceType > 0)
-      {
-        Serial.print("Device ");
-        Serial.print(device - start + 1);
-        Serial.print(" ");
-      }
+      Serial.print("Device ");
+      Serial.print(device - start + 1);
+      Serial.print(": ");
 
       switch (deviceType)
       {
       case 1:
+      {
         Serial.println("Switch");
-        new KnxSwitchDevice(new HomeKitSwitch(device), goOffset, parameterAddress);
-        break;
-
-      case 2:
-        Serial.println("Dimmer");
-        new KnxDimmerDevice(new HomeKitDimmer(device), goOffset, parameterAddress);
-        break;
-
-      default:
-        goOffset += 4;
+        std::list<ISwitchInterface *> *switchInterfaces = new std::list<ISwitchInterface *>();
+        switchInterfaces->push_back(new HomeKitSwitch(device));
+        new KnxSwitchDevice(switchInterfaces, goOffset, parameterAddress);
         break;
       }
+      case 2:
+      {
+        Serial.println("Dimmer");
+        std::list<IDimmerInterface *> *dimmerInterfaces = new std::list<IDimmerInterface *>();
+        dimmerInterfaces->push_back(new HomeKitDimmer(device));
+        new KnxDimmerDevice(dimmerInterfaces, goOffset, parameterAddress);
+        break;
+      }
+      default:
+      {
+        Serial.println("Inactive");
+        new KnxBaseDevice(goOffset, parameterAddress);
+        break;
+      }
+      }
+      
     }
+    
   }
-
   Serial.println("Start KNX framework");
   knx.start();
   Serial.println("KNX framework started");

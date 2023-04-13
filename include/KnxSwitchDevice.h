@@ -1,26 +1,25 @@
 #pragma once
-#include "component.h"
+#include "KnxBaseDevice.h"
 
 class KnxSwitchDevice;
 
 class ISwitchInterface
 {
     public:
-    virtual void initialize(KnxSwitchDevice* SwitchDevice) = 0;
+    virtual void initialize(KnxSwitchDevice* switchDevice) = 0;
     virtual void setPower(bool on) = 0;
     virtual bool getPower() = 0; 
 };
 
-class KnxSwitchDevice : Component
+class KnxSwitchDevice : public KnxBaseDevice
 {
     public:
-        char deviceName[20 + 1]; // One more then chars for ending 0
-        ISwitchInterface* switchInterface;
-        KnxSwitchDevice(ISwitchInterface* switchInterface, uint16_t& goOffset, uint32_t& parameterAddress);
+        std::list<ISwitchInterface*>* switchInterfaces; 
+        KnxSwitchDevice(std::list<ISwitchInterface*>* switchInterfaces, uint16_t& goOffset, uint32_t& parameterAddress);
     protected:
         virtual void loop(unsigned long now, bool initalize);
         virtual void received(GroupObject& groupObject);
 
         public:
-            void deviceChanged();
+            void deviceChanged(ISwitchInterface* switchInterface);
 };

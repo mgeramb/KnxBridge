@@ -1,5 +1,5 @@
 #pragma once
-#include "component.h"
+#include "KnxBaseDevice.h"
 
 class KnxDimmerDevice;
 
@@ -13,16 +13,15 @@ class IDimmerInterface
     virtual int getBrightness() = 0;  
 };
 
-class KnxDimmerDevice : Component
+class KnxDimmerDevice : public KnxBaseDevice
 {
     public:
-        char deviceName[20 + 1]; // One more then chars for ending 0
-        IDimmerInterface* dimmerInterface;
-        KnxDimmerDevice(IDimmerInterface* dimmerInterface, uint16_t& goOffset, uint32_t& parameterAddress);
+        std::list<IDimmerInterface *> *dimmerInterfaces;
+        KnxDimmerDevice(std::list<IDimmerInterface *> *dimmerInterfaces, uint16_t& goOffset, uint32_t& parameterAddress);
     protected:
         virtual void loop(unsigned long now, bool initalize);
         virtual void received(GroupObject& groupObject);
 
         public:
-            void deviceChanged();
+            void deviceChanged(IDimmerInterface* dimmerInterface);
 };

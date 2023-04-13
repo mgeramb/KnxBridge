@@ -5,35 +5,38 @@
 #define GO_SWITCH_FEEDBACK 1, "Switch Feedback", DPT_Switch
 #define GO_DIMMER 2, "Dimmer", DPT_Scaling
 #define GO_DIMMER_FEEDBACK 3, "Dimmer Feedback", DPT_Scaling
-#define NUMBER_OF_GOS 4
 
-
-
-KnxDimmerDevice::KnxDimmerDevice(IDimmerInterface* dimmerInterface, uint16_t &goOffset, uint32_t &parameterAddress)
-    : Component((const char *)deviceName, goOffset),
-    dimmerInterface(dimmerInterface)
+KnxDimmerDevice::KnxDimmerDevice(std::list<IDimmerInterface *> *dimmerInterfaces, uint16_t &goOffset, uint32_t &parameterAddress)
+    : KnxBaseDevice(goOffset, parameterAddress),
+      dimmerInterfaces(dimmerInterfaces)
 {
-    readKnxParameterString("DeviceName", parameterAddress, deviceName, sizeof(deviceName));
-    goOffset += NUMBER_OF_GOS;
-
-    dimmerInterface->initialize(this);
+    for (std::list<IDimmerInterface *>::iterator it = dimmerInterfaces->begin(); it != dimmerInterfaces->end(); ++it)
+         (*it)->initialize(this);
 }
 
-void KnxDimmerDevice::deviceChanged()
+void KnxDimmerDevice::deviceChanged(IDimmerInterface *dimmerInterface)
 {
     Serial.print(name);
     Serial.println(" device receive changed");
-    float percentValue = dimmerInterface->getBrightness();
+    float brightness = dimmerInterface->getBrightness();
     Serial.print("Brightness: ");
-    Serial.println(percentValue);
+    Serial.println(brightness);
     bool power = dimmerInterface->getPower();
     if (!power)
-        percentValue = 0;
+        brightness = 0;
     Serial.print("Power: ");
     Serial.println(power);
-    uint8_t knxValue = percentValue;
+    uint8_t knxValue = brightness;
     goSet(GO_DIMMER, knxValue, false);
     goSet(GO_SWITCH, knxValue > 0, false);
+    for (std::list<IDimmerInterface *>::iterator it = dimmerInterfaces->begin(); it != dimmerInterfaces->end(); ++it)
+    {
+        if ((*it) != dimmerInterface)
+        {
+            (*it)->setPower(power);
+            (*it)->setBrightness(brightness);
+        }
+    }
 }
 
 void KnxDimmerDevice::loop(unsigned long now, bool initalize)
@@ -53,14 +56,20 @@ void KnxDimmerDevice::received(GroupObject &groupObject)
 {
     if (isGo(groupObject, GO_SWITCH_FEEDBACK))
     {
-        bool switchValue = goGet(GO_SWITCH_FEEDBACK);
-        goSetWithoutSend(GO_SWITCH, switchValue);
-        dimmerInterface->setPower(switchValue);
+        bool power = goGet(GO_SWITCH_FEEDBACK);
+        goSetWithoutSend(GO_SWITCH, power);
+        for (std::list<IDimmerInterface *>::iterator it = dimmerInterfaces->begin(); it != dimmerInterfaces->end(); ++it)
+        {
+            (*it)->setPower(power);
+        }
     }
     if (isGo(groupObject, GO_DIMMER_FEEDBACK))
     {
-        uint8_t dimmerValue = goGet(GO_DIMMER_FEEDBACK);
-        goSetWithoutSend(GO_DIMMER, dimmerValue);
-        dimmerInterface->setBrightness(dimmerValue);
+        uint8_t brightness = goGet(GO_DIMMER_FEEDBACK);
+        goSetWithoutSend(GO_DIMMER, brightness);
+        for (std::list<IDimmerInterface *>::iterator it = dimmerInterfaces->begin(); it != dimmerInterfaces->end(); ++it)
+        {
+            (*it)->setBrightness(brightness);
+        }
     }
 }

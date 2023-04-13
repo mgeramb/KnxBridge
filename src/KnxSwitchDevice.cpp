@@ -5,20 +5,16 @@
 #define GO_SWITCH_FEEDBACK 1, "Switch Feedback", DPT_Switch
 // Not used: #define GO_Switch 2, "Switch", DPT_Scaling
 // Not used: #define GO_Switch_FEEDBACK 3, "Switch Feedback", DPT_Scaling
-#define NUMBER_OF_GOS 4
 
-
-KnxSwitchDevice::KnxSwitchDevice(ISwitchInterface* switchInterface, uint16_t &goOffset, uint32_t &parameterAddress)
-    : Component((const char *)deviceName, goOffset),
-    switchInterface(switchInterface)
+KnxSwitchDevice::KnxSwitchDevice(std::list<ISwitchInterface *> *switchInterfaces, uint16_t &goOffset, uint32_t &parameterAddress)
+    : KnxBaseDevice(goOffset, parameterAddress),
+      switchInterfaces(switchInterfaces)
 {
-    readKnxParameterString("DeviceName", parameterAddress, deviceName, sizeof(deviceName));
-    goOffset += NUMBER_OF_GOS;
-
-    switchInterface->initialize(this);
+    for (std::list<ISwitchInterface *>::iterator it = switchInterfaces->begin(); it != switchInterfaces->end(); ++it)
+        (*it)->initialize(this);
 }
 
-void KnxSwitchDevice::deviceChanged()
+void KnxSwitchDevice::deviceChanged(ISwitchInterface *switchInterface)
 {
     Serial.print(name);
     Serial.println(" device receive changed");
@@ -26,6 +22,11 @@ void KnxSwitchDevice::deviceChanged()
     Serial.print("Power: ");
     Serial.println(power);
     goSet(GO_SWITCH, power, false);
+    for (std::list<ISwitchInterface *>::iterator it = switchInterfaces->begin(); it != switchInterfaces->end(); ++it)
+    {
+        if ((*it) != switchInterface)
+            (*it)->setPower(power);
+    }
 }
 
 void KnxSwitchDevice::loop(unsigned long now, bool initalize)
@@ -42,8 +43,11 @@ void KnxSwitchDevice::received(GroupObject &groupObject)
 {
     if (isGo(groupObject, GO_SWITCH_FEEDBACK))
     {
-        bool switchValue = goGet(GO_SWITCH_FEEDBACK);
-        goSetWithoutSend(GO_SWITCH, switchValue);
-        switchInterface->setPower(switchValue);
+        bool power = goGet(GO_SWITCH_FEEDBACK);
+        goSetWithoutSend(GO_SWITCH, power);
+        for (std::list<ISwitchInterface *>::iterator it = switchInterfaces->begin(); it != switchInterfaces->end(); ++it)
+        {
+            (*it)->setPower(power);
+        }
     }
 }

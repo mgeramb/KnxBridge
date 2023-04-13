@@ -20,7 +20,7 @@ void HomeKitDimmer::initialize(KnxDimmerDevice *dimmerDevice)
 
 boolean HomeKitDimmer::update()
 {
-    dimmerDevice->deviceChanged();
+    dimmerDevice->deviceChanged(this);
     return (true);
 }
 
