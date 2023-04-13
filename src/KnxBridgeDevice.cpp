@@ -1,7 +1,8 @@
 #include <knx.h>
 #include "KnxBridgeDevice.h"
 
-#define NUMBER_OF_GOS 0
+#define GO_WLAN_STATE 0, "WLAN Connected", DPT_Switch
+#define NUMBER_OF_GOS 1
 
 #include "KnxBridgeDevice.h"
 
@@ -24,7 +25,9 @@ KnxBridgeDevice::KnxBridgeDevice(std::list<IBridgeInterface *> *bridgeInterfaces
 }
 
 void KnxBridgeDevice::loop(unsigned long now, bool initalize)
-{
+{       
+    goSet(GO_WLAN_STATE, WiFi.status() == WL_CONNECTED, initalize);
+
     for (std::list<IBridgeInterface *>::iterator it = bridgeInterfaces->begin(); it != bridgeInterfaces->end(); ++it)
-        (*it)->loop();
+        (*it)->loop();    
 }
