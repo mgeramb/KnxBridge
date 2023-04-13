@@ -1,7 +1,7 @@
-# KnxBridge
+# KnxBridge -  KNX bridge for HomeKit and Philips-Hue
 
 This bridge emulates a HomeKit-Bridge and a Philips-Hue bridge.
-This SW is in alpha version state! Use on your own risk.
+The SW is in alpha version state! Use on your own risk.
 
 ## HW
 
