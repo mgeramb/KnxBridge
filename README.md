@@ -1,5 +1,6 @@
 # KnxBridge
 
+This bridge emulates a HomeKit-Bridge and a Philips-Hue bridge.
 This SW is in alpha version state! Use on your own risk.
 
 ## HW
@@ -33,4 +34,5 @@ The firmeware can be compiled and uploaded in VS Code with the [platformioIO](ht
 
 ## Known Issues
 
-Do not use special characters like 'äöüß...' for the device names.
+- Do not use special characters like 'äöüß...' for the device names.
+- Philips Hue emulations uses a dimmer instead of a switch because of the used base library [Aircoookie/Espalexa](https://github.com/Aircoookie/Espalexa)

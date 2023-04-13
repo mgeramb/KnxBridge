@@ -13,14 +13,14 @@ class IBridgeInterface
 class KnxBridgeDevice : Component
 {
     private:
-        IBridgeInterface* bridgeInterface;
+        std::list<IBridgeInterface *> *bridgeInterfaces;
     public:
         char ssid[32 + 1]; // One more then chars for ending 0
         char password[64 + 1]; // One more then chars for ending 0
 
         char deviceName[20 + 1]; // One more then chars for ending 0
         char pairingCode[8 + 1]; // One more then chars for ending 0
-        KnxBridgeDevice(IBridgeInterface* bridgeInterface, uint16_t& goOffset, uint32_t& parameterAddress);
+        KnxBridgeDevice(std::list<IBridgeInterface *> *bridgeInterfaces, uint16_t& goOffset, uint32_t& parameterAddress);
 
    protected:
         virtual void loop(unsigned long now, bool initalize);

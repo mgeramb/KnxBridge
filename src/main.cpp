@@ -12,6 +12,10 @@
 #include "HomeKitSwitch.h"
 #include "HomeKitDimmer.h"
 
+#include "HueBridge.h"
+#include "HueSwitch.h"
+#include "HueDimmer.h"
+
 u_int8_t startTimeInMilliseconds = 0;
 
 void progLedOn()
@@ -72,8 +76,12 @@ void setup()
     Serial.print("Start time ");
     Serial.println(startTimeInMilliseconds);
     parameterAddress += 4;
-
-    new KnxBridgeDevice(new HomeKitBridge(), goOffset, parameterAddress);
+    
+    HueBridge* hueBridge = new HueBridge();
+    std::list<IBridgeInterface *> *bridgeInterfaces = new std::list<IBridgeInterface *>();
+    bridgeInterfaces->push_back(new HomeKitBridge());
+    bridgeInterfaces->push_back(hueBridge);
+    new KnxBridgeDevice(bridgeInterfaces, goOffset, parameterAddress);
 
     // Start loop with 2, because device 1 is the bridge
     int devices = 25;
@@ -94,6 +102,7 @@ void setup()
         Serial.println("Switch");
         std::list<ISwitchInterface *> *switchInterfaces = new std::list<ISwitchInterface *>();
         switchInterfaces->push_back(new HomeKitSwitch(device));
+        switchInterfaces->push_back(new HueSwitch(hueBridge));
         new KnxSwitchDevice(switchInterfaces, goOffset, parameterAddress);
         break;
       }
@@ -102,6 +111,7 @@ void setup()
         Serial.println("Dimmer");
         std::list<IDimmerInterface *> *dimmerInterfaces = new std::list<IDimmerInterface *>();
         dimmerInterfaces->push_back(new HomeKitDimmer(device));
+        dimmerInterfaces->push_back(new HueDimmer(hueBridge));
         new KnxDimmerDevice(dimmerInterfaces, goOffset, parameterAddress);
         break;
       }
@@ -111,10 +121,8 @@ void setup()
         new KnxBaseDevice(goOffset, parameterAddress);
         break;
       }
-      }
-      
+      } 
     }
-    
   }
   Serial.println("Start KNX framework");
   knx.start();
