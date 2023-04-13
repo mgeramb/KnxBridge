@@ -30,3 +30,7 @@ The ETS application has to be created out of the KnxBridge.xml file with the [Cr
 ## Firmware
 
 The firmeware can be compiled and uploaded in VS Code with the [platformioIO](https://docs.platformio.org/en/latest/integration/ide/vscode.html#ide-vscode) extension installed.
+
+## Known Issues
+
+Do not use special characters like 'äöüß...' for the device names.
