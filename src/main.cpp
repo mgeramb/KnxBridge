@@ -77,14 +77,24 @@ void setup()
     Serial.println(startTimeInMilliseconds);
     parameterAddress += 4;
     
-    HueBridge* hueBridge = new HueBridge();
+ 
+    KnxBridgeDevice* bridge = new KnxBridgeDevice(goOffset, parameterAddress);
+    
     std::list<IBridgeInterface *> *bridgeInterfaces = new std::list<IBridgeInterface *>();
-    bridgeInterfaces->push_back(new HomeKitBridge());
-    bridgeInterfaces->push_back(hueBridge);
-    new KnxBridgeDevice(bridgeInterfaces, goOffset, parameterAddress);
+    HueBridge* hueBridge = NULL;
+    if (bridge->mode & Mode::Homekit)
+      bridgeInterfaces->push_back(new HomeKitBridge());
 
+    if (bridge->mode & Mode::HueBridgeEmulation)
+    {
+      hueBridge = new HueBridge();
+      bridgeInterfaces->push_back(hueBridge);
+    }
+
+    bridge->initialize(bridgeInterfaces);
+ 
     // Start loop with 2, because device 1 is the bridge
-    int devices = 25;
+    int devices = ESPALEXA_MAXDEVICES;
     int start = 2;
     for (int device = start; device < start + devices; device++)
     {
@@ -101,8 +111,10 @@ void setup()
       {
         Serial.println("Switch");
         std::list<ISwitchInterface *> *switchInterfaces = new std::list<ISwitchInterface *>();
-        switchInterfaces->push_back(new HomeKitSwitch(device));
-        switchInterfaces->push_back(new HueSwitch(hueBridge));
+        if (bridge->mode & Mode::Homekit)
+          switchInterfaces->push_back(new HomeKitSwitch(device));
+        if (bridge->mode & Mode::HueBridgeEmulation)
+          switchInterfaces->push_back(new HueSwitch(hueBridge));
         new KnxSwitchDevice(switchInterfaces, goOffset, parameterAddress);
         break;
       }
@@ -110,8 +122,10 @@ void setup()
       {
         Serial.println("Dimmer");
         std::list<IDimmerInterface *> *dimmerInterfaces = new std::list<IDimmerInterface *>();
-        dimmerInterfaces->push_back(new HomeKitDimmer(device));
-        dimmerInterfaces->push_back(new HueDimmer(hueBridge));
+        if (bridge->mode & Mode::Homekit)
+          dimmerInterfaces->push_back(new HomeKitDimmer(device));
+        if (bridge->mode & Mode::HueBridgeEmulation)
+          dimmerInterfaces->push_back(new HueDimmer(hueBridge));
         new KnxDimmerDevice(dimmerInterfaces, goOffset, parameterAddress);
         break;
       }
@@ -129,7 +143,6 @@ void setup()
   Serial.println("KNX framework started");
 }
 
-bool initializeHue = true;
 bool initalizeKnx = true;
 
 void loop()
