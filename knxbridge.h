@@ -87,6 +87,26 @@
 #define Device39Name              1123      // char*, 25 Byte
 #define Device40Type              1148      // 8 Bits, Bit 7-0
 #define Device40Name              1149      // char*, 25 Byte
+#define Device41Type              1174      // 8 Bits, Bit 7-0
+#define Device41Name              1175      // char*, 25 Byte
+#define Device42Type              1200      // 8 Bits, Bit 7-0
+#define Device42Name              1201      // char*, 25 Byte
+#define Device43Type              1226      // 8 Bits, Bit 7-0
+#define Device43Name              1227      // char*, 25 Byte
+#define Device44Type              1252      // 8 Bits, Bit 7-0
+#define Device44Name              1253      // char*, 25 Byte
+#define Device45Type              1278      // 8 Bits, Bit 7-0
+#define Device45Name              1279      // char*, 25 Byte
+#define Device46Type              1304      // 8 Bits, Bit 7-0
+#define Device46Name              1305      // char*, 25 Byte
+#define Device47Type              1330      // 8 Bits, Bit 7-0
+#define Device47Name              1331      // char*, 25 Byte
+#define Device48Type              1356      // 8 Bits, Bit 7-0
+#define Device48Name              1357      // char*, 25 Byte
+#define Device49Type              1382      // 8 Bits, Bit 7-0
+#define Device49Name              1383      // char*, 25 Byte
+#define Device50Type              1408      // 8 Bits, Bit 7-0
+#define Device50Name              1409      // char*, 25 Byte
 
 // Communication objects with single occurrence
 #define KoWLAN_Status 1
@@ -250,4 +270,44 @@
 #define KoGerät_40_Schalten_Rückmeldung 159
 #define KoGerät_40_Dimmer 160
 #define KoGerät_40_Dimmer_Rückmeldung 161
+#define KoGerät_41_Schalten 162
+#define KoGerät_41_Schalten_Rückmeldung 163
+#define KoGerät_41_Dimmer 164
+#define KoGerät_41_Dimmer_Rückmeldung 165
+#define KoGerät_42_Schalten 166
+#define KoGerät_42_Schalten_Rückmeldung 167
+#define KoGerät_42_Dimmer 168
+#define KoGerät_42_Dimmer_Rückmeldung 169
+#define KoGerät_43_Schalten 170
+#define KoGerät_43_Schalten_Rückmeldung 171
+#define KoGerät_43_Dimmer 172
+#define KoGerät_43_Dimmer_Rückmeldung 173
+#define KoGerät_44_Schalten 174
+#define KoGerät_44_Schalten_Rückmeldung 175
+#define KoGerät_44_Dimmer 176
+#define KoGerät_44_Dimmer_Rückmeldung 177
+#define KoGerät_45_Schalten 178
+#define KoGerät_45_Schalten_Rückmeldung 179
+#define KoGerät_45_Dimmer 180
+#define KoGerät_45_Dimmer_Rückmeldung 181
+#define KoGerät_46_Schalten 182
+#define KoGerät_46_Schalten_Rückmeldung 183
+#define KoGerät_46_Dimmer 184
+#define KoGerät_46_Dimmer_Rückmeldung 185
+#define KoGerät_47_Schalten 186
+#define KoGerät_47_Schalten_Rückmeldung 187
+#define KoGerät_47_Dimmer 188
+#define KoGerät_47_Dimmer_Rückmeldung 189
+#define KoGerät_48_Schalten 190
+#define KoGerät_48_Schalten_Rückmeldung 191
+#define KoGerät_48_Dimmer 192
+#define KoGerät_48_Dimmer_Rückmeldung 193
+#define KoGerät_49_Schalten 194
+#define KoGerät_49_Schalten_Rückmeldung 195
+#define KoGerät_49_Dimmer 196
+#define KoGerät_49_Dimmer_Rückmeldung 197
+#define KoGerät_50_Schalten 198
+#define KoGerät_50_Schalten_Rückmeldung 199
+#define KoGerät_50_Dimmer 200
+#define KoGerät_50_Dimmer_Rückmeldung 201
 
