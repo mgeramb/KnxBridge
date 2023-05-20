@@ -27,8 +27,8 @@ void KnxDimmerDevice::deviceChanged(IDimmerInterface *dimmerInterface)
     Serial.print("Power: ");
     Serial.println(power);
     uint8_t knxValue = brightness;
-    goSet(GO_DIMMER, knxValue, false);
-    goSet(GO_SWITCH, knxValue > 0, false);
+    goSet(GO_DIMMER, knxValue, true);
+    goSet(GO_SWITCH, knxValue > 0, true);
     for (std::list<IDimmerInterface *>::iterator it = dimmerInterfaces->begin(); it != dimmerInterfaces->end(); ++it)
     {
         if ((*it) != dimmerInterface)

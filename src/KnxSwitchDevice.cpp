@@ -21,7 +21,7 @@ void KnxSwitchDevice::deviceChanged(ISwitchInterface *switchInterface)
     bool power = switchInterface->getPower();
     Serial.print("Power: ");
     Serial.println(power);
-    goSet(GO_SWITCH, power, false);
+    goSet(GO_SWITCH, power, true);
     for (std::list<ISwitchInterface *>::iterator it = switchInterfaces->begin(); it != switchInterfaces->end(); ++it)
     {
         if ((*it) != switchInterface)
