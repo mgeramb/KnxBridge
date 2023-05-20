@@ -8,7 +8,7 @@
         </CatalogSection>
       </Catalog>
       <ApplicationPrograms>
-        <ApplicationProgram Id="M-00FA_A-0001-0D-0000" ApplicationNumber="1" ApplicationVersion="13" ProgramType="ApplicationProgram" MaskVersion="MV-07B0" Name="KNX Bridge" LoadProcedureStyle="MergedProcedure" PeiType="0" DefaultLanguage="de" DynamicTableManagement="false" Linkable="false" MinEtsVersion="5.0" ReplacesVersions="12">
+        <ApplicationProgram Id="M-00FA_A-0001-0D-0000" ApplicationNumber="1" ApplicationVersion="14" ProgramType="ApplicationProgram" MaskVersion="MV-07B0" Name="KNX Bridge" LoadProcedureStyle="MergedProcedure" PeiType="0" DefaultLanguage="de" DynamicTableManagement="false" Linkable="false" MinEtsVersion="5.0" ReplacesVersions="12,13">
           <Static>
             <Code>
               <RelativeSegment Id="M-00FA_A-0001-0D-0000_RS-04-00000" Name="Parameters" Size="1434" LoadStateMachine="4" Offset="0" />
@@ -309,60 +309,6 @@
               <Parameter Id="M-00FA_A-0001-0D-0000_P-88" Name="Device41Name" ParameterType="M-00FA_A-0001-0D-0000_PT-DeviceName" Text="Gerät 41 Name" Value="Lampe 41">
                 <Memory CodeSegment="M-00FA_A-0001-0D-0000_RS-04-00000" Offset="1175" BitOffset="0" />
               </Parameter>
-              <Parameter Id="M-00FA_A-0001-0D-0000_P-89" Name="Device42Type" ParameterType="M-00FA_A-0001-0D-0000_PT-DeviceType" Text="Gerät 42 Type" Value="0">
-                <Memory CodeSegment="M-00FA_A-0001-0D-0000_RS-04-00000" Offset="1200" BitOffset="0" />
-              </Parameter>
-              <Parameter Id="M-00FA_A-0001-0D-0000_P-90" Name="Device42Name" ParameterType="M-00FA_A-0001-0D-0000_PT-DeviceName" Text="Gerät 42 Name" Value="Lampe 42">
-                <Memory CodeSegment="M-00FA_A-0001-0D-0000_RS-04-00000" Offset="1201" BitOffset="0" />
-              </Parameter>
-              <Parameter Id="M-00FA_A-0001-0D-0000_P-91" Name="Device43Type" ParameterType="M-00FA_A-0001-0D-0000_PT-DeviceType" Text="Gerät 43 Type" Value="0">
-                <Memory CodeSegment="M-00FA_A-0001-0D-0000_RS-04-00000" Offset="1226" BitOffset="0" />
-              </Parameter>
-              <Parameter Id="M-00FA_A-0001-0D-0000_P-92" Name="Device43Name" ParameterType="M-00FA_A-0001-0D-0000_PT-DeviceName" Text="Gerät 43 Name" Value="Lampe 43">
-                <Memory CodeSegment="M-00FA_A-0001-0D-0000_RS-04-00000" Offset="1227" BitOffset="0" />
-              </Parameter>
-              <Parameter Id="M-00FA_A-0001-0D-0000_P-93" Name="Device44Type" ParameterType="M-00FA_A-0001-0D-0000_PT-DeviceType" Text="Gerät 44 Type" Value="0">
-                <Memory CodeSegment="M-00FA_A-0001-0D-0000_RS-04-00000" Offset="1252" BitOffset="0" />
-              </Parameter>
-              <Parameter Id="M-00FA_A-0001-0D-0000_P-94" Name="Device44Name" ParameterType="M-00FA_A-0001-0D-0000_PT-DeviceName" Text="Gerät 44 Name" Value="Lampe 44">
-                <Memory CodeSegment="M-00FA_A-0001-0D-0000_RS-04-00000" Offset="1253" BitOffset="0" />
-              </Parameter>
-              <Parameter Id="M-00FA_A-0001-0D-0000_P-95" Name="Device45Type" ParameterType="M-00FA_A-0001-0D-0000_PT-DeviceType" Text="Gerät 45 Type" Value="0">
-                <Memory CodeSegment="M-00FA_A-0001-0D-0000_RS-04-00000" Offset="1278" BitOffset="0" />
-              </Parameter>
-              <Parameter Id="M-00FA_A-0001-0D-0000_P-96" Name="Device45Name" ParameterType="M-00FA_A-0001-0D-0000_PT-DeviceName" Text="Gerät 45 Name" Value="Lampe 45">
-                <Memory CodeSegment="M-00FA_A-0001-0D-0000_RS-04-00000" Offset="1279" BitOffset="0" />
-              </Parameter>
-              <Parameter Id="M-00FA_A-0001-0D-0000_P-97" Name="Device46Type" ParameterType="M-00FA_A-0001-0D-0000_PT-DeviceType" Text="Gerät 46 Type" Value="0">
-                <Memory CodeSegment="M-00FA_A-0001-0D-0000_RS-04-00000" Offset="1304" BitOffset="0" />
-              </Parameter>
-              <Parameter Id="M-00FA_A-0001-0D-0000_P-98" Name="Device46Name" ParameterType="M-00FA_A-0001-0D-0000_PT-DeviceName" Text="Gerät 46 Name" Value="Lampe 46">
-                <Memory CodeSegment="M-00FA_A-0001-0D-0000_RS-04-00000" Offset="1305" BitOffset="0" />
-              </Parameter>
-              <Parameter Id="M-00FA_A-0001-0D-0000_P-99" Name="Device47Type" ParameterType="M-00FA_A-0001-0D-0000_PT-DeviceType" Text="Gerät 47 Type" Value="0">
-                <Memory CodeSegment="M-00FA_A-0001-0D-0000_RS-04-00000" Offset="1330" BitOffset="0" />
-              </Parameter>
-              <Parameter Id="M-00FA_A-0001-0D-0000_P-100" Name="Device47Name" ParameterType="M-00FA_A-0001-0D-0000_PT-DeviceName" Text="Gerät 47 Name" Value="Lampe 47">
-                <Memory CodeSegment="M-00FA_A-0001-0D-0000_RS-04-00000" Offset="1331" BitOffset="0" />
-              </Parameter>
-              <Parameter Id="M-00FA_A-0001-0D-0000_P-101" Name="Device48Type" ParameterType="M-00FA_A-0001-0D-0000_PT-DeviceType" Text="Gerät 48 Type" Value="0">
-                <Memory CodeSegment="M-00FA_A-0001-0D-0000_RS-04-00000" Offset="1356" BitOffset="0" />
-              </Parameter>
-              <Parameter Id="M-00FA_A-0001-0D-0000_P-102" Name="Device48Name" ParameterType="M-00FA_A-0001-0D-0000_PT-DeviceName" Text="Gerät 48 Name" Value="Lampe 48">
-                <Memory CodeSegment="M-00FA_A-0001-0D-0000_RS-04-00000" Offset="1357" BitOffset="0" />
-              </Parameter>
-              <Parameter Id="M-00FA_A-0001-0D-0000_P-103" Name="Device49Type" ParameterType="M-00FA_A-0001-0D-0000_PT-DeviceType" Text="Gerät 49 Type" Value="0">
-                <Memory CodeSegment="M-00FA_A-0001-0D-0000_RS-04-00000" Offset="1382" BitOffset="0" />
-              </Parameter>
-              <Parameter Id="M-00FA_A-0001-0D-0000_P-104" Name="Device49Name" ParameterType="M-00FA_A-0001-0D-0000_PT-DeviceName" Text="Gerät 49 Name" Value="Lampe 49">
-                <Memory CodeSegment="M-00FA_A-0001-0D-0000_RS-04-00000" Offset="1383" BitOffset="0" />
-              </Parameter>
-              <Parameter Id="M-00FA_A-0001-0D-0000_P-105" Name="Device50Type" ParameterType="M-00FA_A-0001-0D-0000_PT-DeviceType" Text="Gerät 50 Type" Value="0">
-                <Memory CodeSegment="M-00FA_A-0001-0D-0000_RS-04-00000" Offset="1408" BitOffset="0" />
-              </Parameter>
-              <Parameter Id="M-00FA_A-0001-0D-0000_P-106" Name="Device50Name" ParameterType="M-00FA_A-0001-0D-0000_PT-DeviceName" Text="Gerät 50 Name" Value="Lampe 50">
-                <Memory CodeSegment="M-00FA_A-0001-0D-0000_RS-04-00000" Offset="1409" BitOffset="0" />
-              </Parameter>
             </Parameters>
             <ParameterRefs>
               <ParameterRef Id="M-00FA_A-0001-0D-0000_P-1_R-1" RefId="M-00FA_A-0001-0D-0000_P-1" />
@@ -453,24 +399,6 @@
               <ParameterRef Id="M-00FA_A-0001-0D-0000_P-86_R-86" RefId="M-00FA_A-0001-0D-0000_P-86" />
               <ParameterRef Id="M-00FA_A-0001-0D-0000_P-87_R-87" RefId="M-00FA_A-0001-0D-0000_P-87" />
               <ParameterRef Id="M-00FA_A-0001-0D-0000_P-88_R-88" RefId="M-00FA_A-0001-0D-0000_P-88" />
-              <ParameterRef Id="M-00FA_A-0001-0D-0000_P-89_R-89" RefId="M-00FA_A-0001-0D-0000_P-89" />
-              <ParameterRef Id="M-00FA_A-0001-0D-0000_P-90_R-90" RefId="M-00FA_A-0001-0D-0000_P-90" />
-              <ParameterRef Id="M-00FA_A-0001-0D-0000_P-91_R-91" RefId="M-00FA_A-0001-0D-0000_P-91" />
-              <ParameterRef Id="M-00FA_A-0001-0D-0000_P-92_R-92" RefId="M-00FA_A-0001-0D-0000_P-92" />
-              <ParameterRef Id="M-00FA_A-0001-0D-0000_P-93_R-93" RefId="M-00FA_A-0001-0D-0000_P-93" />
-              <ParameterRef Id="M-00FA_A-0001-0D-0000_P-94_R-94" RefId="M-00FA_A-0001-0D-0000_P-94" />
-              <ParameterRef Id="M-00FA_A-0001-0D-0000_P-95_R-95" RefId="M-00FA_A-0001-0D-0000_P-95" />
-              <ParameterRef Id="M-00FA_A-0001-0D-0000_P-96_R-96" RefId="M-00FA_A-0001-0D-0000_P-96" />
-              <ParameterRef Id="M-00FA_A-0001-0D-0000_P-97_R-97" RefId="M-00FA_A-0001-0D-0000_P-97" />
-              <ParameterRef Id="M-00FA_A-0001-0D-0000_P-98_R-98" RefId="M-00FA_A-0001-0D-0000_P-98" />
-              <ParameterRef Id="M-00FA_A-0001-0D-0000_P-99_R-99" RefId="M-00FA_A-0001-0D-0000_P-99" />
-              <ParameterRef Id="M-00FA_A-0001-0D-0000_P-100_R-100" RefId="M-00FA_A-0001-0D-0000_P-100" />
-              <ParameterRef Id="M-00FA_A-0001-0D-0000_P-101_R-101" RefId="M-00FA_A-0001-0D-0000_P-101" />
-              <ParameterRef Id="M-00FA_A-0001-0D-0000_P-102_R-102" RefId="M-00FA_A-0001-0D-0000_P-102" />
-              <ParameterRef Id="M-00FA_A-0001-0D-0000_P-103_R-103" RefId="M-00FA_A-0001-0D-0000_P-103" />
-              <ParameterRef Id="M-00FA_A-0001-0D-0000_P-104_R-104" RefId="M-00FA_A-0001-0D-0000_P-104" />
-              <ParameterRef Id="M-00FA_A-0001-0D-0000_P-105_R-105" RefId="M-00FA_A-0001-0D-0000_P-105" />
-              <ParameterRef Id="M-00FA_A-0001-0D-0000_P-106_R-106" RefId="M-00FA_A-0001-0D-0000_P-106" />
             </ParameterRefs>
             <ComObjectTable>
               <ComObject Id="M-00FA_A-0001-0D-0000_O-1" Name="WLAN Status" Text="WLAN Status" Number="1" FunctionText="WLAN Verbunden" ObjectSize="1 Bit" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" />
@@ -638,43 +566,7 @@
               <ComObject Id="M-00FA_A-0001-0D-0000_O-163" Name="Gerät 41 Schalten Rückmeldung" Text="Gerät 41 Schalten Rückmeldung" Number="163" FunctionText="Gerät 41 Schalten Rückmeldung" ObjectSize="1 Bit" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
               <ComObject Id="M-00FA_A-0001-0D-0000_O-164" Name="Gerät 41 Dimmer" Text="Gerät 41 Dimmer" Number="164" FunctionText="Gerät 41 Dimmer" ObjectSize="1 Byte" ReadFlag="Disabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
               <ComObject Id="M-00FA_A-0001-0D-0000_O-165" Name="Gerät 41 Dimmer Rückmeldung" Text="Gerät 41 Dimmer Rückmeldung" Number="165" FunctionText="Gerät 41 Dimmer Rückmeldung" ObjectSize="1 Byte" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
-              <ComObject Id="M-00FA_A-0001-0D-0000_O-166" Name="Gerät 42 Schalten" Text="Gerät 42 Schalten" Number="166" FunctionText="Gerät 42 Schalten" ObjectSize="1 Bit" ReadFlag="Disabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
-              <ComObject Id="M-00FA_A-0001-0D-0000_O-167" Name="Gerät 42 Schalten Rückmeldung" Text="Gerät 42 Schalten Rückmeldung" Number="167" FunctionText="Gerät 42 Schalten Rückmeldung" ObjectSize="1 Bit" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
-              <ComObject Id="M-00FA_A-0001-0D-0000_O-168" Name="Gerät 42 Dimmer" Text="Gerät 42 Dimmer" Number="168" FunctionText="Gerät 42 Dimmer" ObjectSize="1 Byte" ReadFlag="Disabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
-              <ComObject Id="M-00FA_A-0001-0D-0000_O-169" Name="Gerät 42 Dimmer Rückmeldung" Text="Gerät 42 Dimmer Rückmeldung" Number="169" FunctionText="Gerät 42 Dimmer Rückmeldung" ObjectSize="1 Byte" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
-              <ComObject Id="M-00FA_A-0001-0D-0000_O-170" Name="Gerät 43 Schalten" Text="Gerät 43 Schalten" Number="170" FunctionText="Gerät 43 Schalten" ObjectSize="1 Bit" ReadFlag="Disabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
-              <ComObject Id="M-00FA_A-0001-0D-0000_O-171" Name="Gerät 43 Schalten Rückmeldung" Text="Gerät 43 Schalten Rückmeldung" Number="171" FunctionText="Gerät 43 Schalten Rückmeldung" ObjectSize="1 Bit" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
-              <ComObject Id="M-00FA_A-0001-0D-0000_O-172" Name="Gerät 43 Dimmer" Text="Gerät 43 Dimmer" Number="172" FunctionText="Gerät 43 Dimmer" ObjectSize="1 Byte" ReadFlag="Disabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
-              <ComObject Id="M-00FA_A-0001-0D-0000_O-173" Name="Gerät 43 Dimmer Rückmeldung" Text="Gerät 43 Dimmer Rückmeldung" Number="173" FunctionText="Gerät 43 Dimmer Rückmeldung" ObjectSize="1 Byte" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
-              <ComObject Id="M-00FA_A-0001-0D-0000_O-174" Name="Gerät 44 Schalten" Text="Gerät 44 Schalten" Number="174" FunctionText="Gerät 44 Schalten" ObjectSize="1 Bit" ReadFlag="Disabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
-              <ComObject Id="M-00FA_A-0001-0D-0000_O-175" Name="Gerät 44 Schalten Rückmeldung" Text="Gerät 44 Schalten Rückmeldung" Number="175" FunctionText="Gerät 44 Schalten Rückmeldung" ObjectSize="1 Bit" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
-              <ComObject Id="M-00FA_A-0001-0D-0000_O-176" Name="Gerät 44 Dimmer" Text="Gerät 44 Dimmer" Number="176" FunctionText="Gerät 44 Dimmer" ObjectSize="1 Byte" ReadFlag="Disabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
-              <ComObject Id="M-00FA_A-0001-0D-0000_O-177" Name="Gerät 44 Dimmer Rückmeldung" Text="Gerät 44 Dimmer Rückmeldung" Number="177" FunctionText="Gerät 44 Dimmer Rückmeldung" ObjectSize="1 Byte" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
-              <ComObject Id="M-00FA_A-0001-0D-0000_O-178" Name="Gerät 45 Schalten" Text="Gerät 45 Schalten" Number="178" FunctionText="Gerät 45 Schalten" ObjectSize="1 Bit" ReadFlag="Disabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
-              <ComObject Id="M-00FA_A-0001-0D-0000_O-179" Name="Gerät 45 Schalten Rückmeldung" Text="Gerät 45 Schalten Rückmeldung" Number="179" FunctionText="Gerät 45 Schalten Rückmeldung" ObjectSize="1 Bit" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
-              <ComObject Id="M-00FA_A-0001-0D-0000_O-180" Name="Gerät 45 Dimmer" Text="Gerät 45 Dimmer" Number="180" FunctionText="Gerät 45 Dimmer" ObjectSize="1 Byte" ReadFlag="Disabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
-              <ComObject Id="M-00FA_A-0001-0D-0000_O-181" Name="Gerät 45 Dimmer Rückmeldung" Text="Gerät 45 Dimmer Rückmeldung" Number="181" FunctionText="Gerät 45 Dimmer Rückmeldung" ObjectSize="1 Byte" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
-              <ComObject Id="M-00FA_A-0001-0D-0000_O-182" Name="Gerät 46 Schalten" Text="Gerät 46 Schalten" Number="182" FunctionText="Gerät 46 Schalten" ObjectSize="1 Bit" ReadFlag="Disabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
-              <ComObject Id="M-00FA_A-0001-0D-0000_O-183" Name="Gerät 46 Schalten Rückmeldung" Text="Gerät 46 Schalten Rückmeldung" Number="183" FunctionText="Gerät 46 Schalten Rückmeldung" ObjectSize="1 Bit" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
-              <ComObject Id="M-00FA_A-0001-0D-0000_O-184" Name="Gerät 46 Dimmer" Text="Gerät 46 Dimmer" Number="184" FunctionText="Gerät 46 Dimmer" ObjectSize="1 Byte" ReadFlag="Disabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
-              <ComObject Id="M-00FA_A-0001-0D-0000_O-185" Name="Gerät 46 Dimmer Rückmeldung" Text="Gerät 46 Dimmer Rückmeldung" Number="185" FunctionText="Gerät 46 Dimmer Rückmeldung" ObjectSize="1 Byte" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
-              <ComObject Id="M-00FA_A-0001-0D-0000_O-186" Name="Gerät 47 Schalten" Text="Gerät 47 Schalten" Number="186" FunctionText="Gerät 47 Schalten" ObjectSize="1 Bit" ReadFlag="Disabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
-              <ComObject Id="M-00FA_A-0001-0D-0000_O-187" Name="Gerät 47 Schalten Rückmeldung" Text="Gerät 47 Schalten Rückmeldung" Number="187" FunctionText="Gerät 47 Schalten Rückmeldung" ObjectSize="1 Bit" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
-              <ComObject Id="M-00FA_A-0001-0D-0000_O-188" Name="Gerät 47 Dimmer" Text="Gerät 47 Dimmer" Number="188" FunctionText="Gerät 47 Dimmer" ObjectSize="1 Byte" ReadFlag="Disabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
-              <ComObject Id="M-00FA_A-0001-0D-0000_O-189" Name="Gerät 47 Dimmer Rückmeldung" Text="Gerät 47 Dimmer Rückmeldung" Number="189" FunctionText="Gerät 47 Dimmer Rückmeldung" ObjectSize="1 Byte" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
-              <ComObject Id="M-00FA_A-0001-0D-0000_O-190" Name="Gerät 48 Schalten" Text="Gerät 48 Schalten" Number="190" FunctionText="Gerät 48 Schalten" ObjectSize="1 Bit" ReadFlag="Disabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
-              <ComObject Id="M-00FA_A-0001-0D-0000_O-191" Name="Gerät 48 Schalten Rückmeldung" Text="Gerät 48 Schalten Rückmeldung" Number="191" FunctionText="Gerät 48 Schalten Rückmeldung" ObjectSize="1 Bit" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
-              <ComObject Id="M-00FA_A-0001-0D-0000_O-192" Name="Gerät 48 Dimmer" Text="Gerät 48 Dimmer" Number="192" FunctionText="Gerät 48 Dimmer" ObjectSize="1 Byte" ReadFlag="Disabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
-              <ComObject Id="M-00FA_A-0001-0D-0000_O-193" Name="Gerät 48 Dimmer Rückmeldung" Text="Gerät 48 Dimmer Rückmeldung" Number="193" FunctionText="Gerät 48 Dimmer Rückmeldung" ObjectSize="1 Byte" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
-              <ComObject Id="M-00FA_A-0001-0D-0000_O-194" Name="Gerät 49 Schalten" Text="Gerät 49 Schalten" Number="194" FunctionText="Gerät 49 Schalten" ObjectSize="1 Bit" ReadFlag="Disabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
-              <ComObject Id="M-00FA_A-0001-0D-0000_O-195" Name="Gerät 49 Schalten Rückmeldung" Text="Gerät 49 Schalten Rückmeldung" Number="195" FunctionText="Gerät 49 Schalten Rückmeldung" ObjectSize="1 Bit" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
-              <ComObject Id="M-00FA_A-0001-0D-0000_O-196" Name="Gerät 49 Dimmer" Text="Gerät 49 Dimmer" Number="196" FunctionText="Gerät 49 Dimmer" ObjectSize="1 Byte" ReadFlag="Disabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
-              <ComObject Id="M-00FA_A-0001-0D-0000_O-197" Name="Gerät 49 Dimmer Rückmeldung" Text="Gerät 49 Dimmer Rückmeldung" Number="197" FunctionText="Gerät 49 Dimmer Rückmeldung" ObjectSize="1 Byte" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
-              <ComObject Id="M-00FA_A-0001-0D-0000_O-198" Name="Gerät 50 Schalten" Text="Gerät 50 Schalten" Number="198" FunctionText="Gerät 50 Schalten" ObjectSize="1 Bit" ReadFlag="Disabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
-              <ComObject Id="M-00FA_A-0001-0D-0000_O-199" Name="Gerät 50 Schalten Rückmeldung" Text="Gerät 50 Schalten Rückmeldung" Number="199" FunctionText="Gerät 50 Schalten Rückmeldung" ObjectSize="1 Bit" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
-              <ComObject Id="M-00FA_A-0001-0D-0000_O-200" Name="Gerät 50 Dimmer" Text="Gerät 50 Dimmer" Number="200" FunctionText="Gerät 50 Dimmer" ObjectSize="1 Byte" ReadFlag="Disabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
-              <ComObject Id="M-00FA_A-0001-0D-0000_O-201" Name="Gerät 50 Dimmer Rückmeldung" Text="Gerät 50 Dimmer Rückmeldung" Number="201" FunctionText="Gerät 50 Dimmer Rückmeldung" ObjectSize="1 Byte" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
-            </ComObjectTable>
+             </ComObjectTable>
             <ComObjectRefs>
               <ComObjectRef Id="M-00FA_A-0001-0D-0000_O-1_R-1" RefId="M-00FA_A-0001-0D-0000_O-1" />
               <ComObjectRef Id="M-00FA_A-0001-0D-0000_O-2_R-2" RefId="M-00FA_A-0001-0D-0000_O-2" />
@@ -841,42 +733,6 @@
               <ComObjectRef Id="M-00FA_A-0001-0D-0000_O-163_R-163" RefId="M-00FA_A-0001-0D-0000_O-163" />
               <ComObjectRef Id="M-00FA_A-0001-0D-0000_O-164_R-164" RefId="M-00FA_A-0001-0D-0000_O-164" />
               <ComObjectRef Id="M-00FA_A-0001-0D-0000_O-165_R-165" RefId="M-00FA_A-0001-0D-0000_O-165" />
-              <ComObjectRef Id="M-00FA_A-0001-0D-0000_O-166_R-166" RefId="M-00FA_A-0001-0D-0000_O-166" />
-              <ComObjectRef Id="M-00FA_A-0001-0D-0000_O-167_R-167" RefId="M-00FA_A-0001-0D-0000_O-167" />
-              <ComObjectRef Id="M-00FA_A-0001-0D-0000_O-168_R-168" RefId="M-00FA_A-0001-0D-0000_O-168" />
-              <ComObjectRef Id="M-00FA_A-0001-0D-0000_O-169_R-169" RefId="M-00FA_A-0001-0D-0000_O-169" />
-              <ComObjectRef Id="M-00FA_A-0001-0D-0000_O-170_R-170" RefId="M-00FA_A-0001-0D-0000_O-170" />
-              <ComObjectRef Id="M-00FA_A-0001-0D-0000_O-171_R-171" RefId="M-00FA_A-0001-0D-0000_O-171" />
-              <ComObjectRef Id="M-00FA_A-0001-0D-0000_O-172_R-172" RefId="M-00FA_A-0001-0D-0000_O-172" />
-              <ComObjectRef Id="M-00FA_A-0001-0D-0000_O-173_R-173" RefId="M-00FA_A-0001-0D-0000_O-173" />
-              <ComObjectRef Id="M-00FA_A-0001-0D-0000_O-174_R-174" RefId="M-00FA_A-0001-0D-0000_O-174" />
-              <ComObjectRef Id="M-00FA_A-0001-0D-0000_O-175_R-175" RefId="M-00FA_A-0001-0D-0000_O-175" />
-              <ComObjectRef Id="M-00FA_A-0001-0D-0000_O-176_R-176" RefId="M-00FA_A-0001-0D-0000_O-176" />
-              <ComObjectRef Id="M-00FA_A-0001-0D-0000_O-177_R-177" RefId="M-00FA_A-0001-0D-0000_O-177" />
-              <ComObjectRef Id="M-00FA_A-0001-0D-0000_O-178_R-178" RefId="M-00FA_A-0001-0D-0000_O-178" />
-              <ComObjectRef Id="M-00FA_A-0001-0D-0000_O-179_R-179" RefId="M-00FA_A-0001-0D-0000_O-179" />
-              <ComObjectRef Id="M-00FA_A-0001-0D-0000_O-180_R-180" RefId="M-00FA_A-0001-0D-0000_O-180" />
-              <ComObjectRef Id="M-00FA_A-0001-0D-0000_O-181_R-181" RefId="M-00FA_A-0001-0D-0000_O-181" />
-              <ComObjectRef Id="M-00FA_A-0001-0D-0000_O-182_R-182" RefId="M-00FA_A-0001-0D-0000_O-182" />
-              <ComObjectRef Id="M-00FA_A-0001-0D-0000_O-183_R-183" RefId="M-00FA_A-0001-0D-0000_O-183" />
-              <ComObjectRef Id="M-00FA_A-0001-0D-0000_O-184_R-184" RefId="M-00FA_A-0001-0D-0000_O-184" />
-              <ComObjectRef Id="M-00FA_A-0001-0D-0000_O-185_R-185" RefId="M-00FA_A-0001-0D-0000_O-185" />
-              <ComObjectRef Id="M-00FA_A-0001-0D-0000_O-186_R-186" RefId="M-00FA_A-0001-0D-0000_O-186" />
-              <ComObjectRef Id="M-00FA_A-0001-0D-0000_O-187_R-187" RefId="M-00FA_A-0001-0D-0000_O-187" />
-              <ComObjectRef Id="M-00FA_A-0001-0D-0000_O-188_R-188" RefId="M-00FA_A-0001-0D-0000_O-188" />
-              <ComObjectRef Id="M-00FA_A-0001-0D-0000_O-189_R-189" RefId="M-00FA_A-0001-0D-0000_O-189" />
-              <ComObjectRef Id="M-00FA_A-0001-0D-0000_O-190_R-190" RefId="M-00FA_A-0001-0D-0000_O-190" />
-              <ComObjectRef Id="M-00FA_A-0001-0D-0000_O-191_R-191" RefId="M-00FA_A-0001-0D-0000_O-191" />
-              <ComObjectRef Id="M-00FA_A-0001-0D-0000_O-192_R-192" RefId="M-00FA_A-0001-0D-0000_O-192" />
-              <ComObjectRef Id="M-00FA_A-0001-0D-0000_O-193_R-193" RefId="M-00FA_A-0001-0D-0000_O-193" />
-              <ComObjectRef Id="M-00FA_A-0001-0D-0000_O-194_R-194" RefId="M-00FA_A-0001-0D-0000_O-194" />
-              <ComObjectRef Id="M-00FA_A-0001-0D-0000_O-195_R-195" RefId="M-00FA_A-0001-0D-0000_O-195" />
-              <ComObjectRef Id="M-00FA_A-0001-0D-0000_O-196_R-196" RefId="M-00FA_A-0001-0D-0000_O-196" />
-              <ComObjectRef Id="M-00FA_A-0001-0D-0000_O-197_R-197" RefId="M-00FA_A-0001-0D-0000_O-197" />
-              <ComObjectRef Id="M-00FA_A-0001-0D-0000_O-198_R-198" RefId="M-00FA_A-0001-0D-0000_O-198" />
-              <ComObjectRef Id="M-00FA_A-0001-0D-0000_O-199_R-199" RefId="M-00FA_A-0001-0D-0000_O-199" />
-              <ComObjectRef Id="M-00FA_A-0001-0D-0000_O-200_R-200" RefId="M-00FA_A-0001-0D-0000_O-200" />
-              <ComObjectRef Id="M-00FA_A-0001-0D-0000_O-201_R-201" RefId="M-00FA_A-0001-0D-0000_O-201" />
             </ComObjectRefs>
             <AddressTable MaxEntries="65535" />
             <AssociationTable MaxEntries="65535" />
@@ -1068,42 +924,6 @@
                 <ComObjectRefRef RefId="M-00FA_A-0001-0D-0000_O-163_R-163" />
                 <ComObjectRefRef RefId="M-00FA_A-0001-0D-0000_O-164_R-164" />
                 <ComObjectRefRef RefId="M-00FA_A-0001-0D-0000_O-165_R-165" />
-                <ComObjectRefRef RefId="M-00FA_A-0001-0D-0000_O-166_R-166" />
-                <ComObjectRefRef RefId="M-00FA_A-0001-0D-0000_O-167_R-167" />
-                <ComObjectRefRef RefId="M-00FA_A-0001-0D-0000_O-168_R-168" />
-                <ComObjectRefRef RefId="M-00FA_A-0001-0D-0000_O-169_R-169" />
-                <ComObjectRefRef RefId="M-00FA_A-0001-0D-0000_O-170_R-170" />
-                <ComObjectRefRef RefId="M-00FA_A-0001-0D-0000_O-171_R-171" />
-                <ComObjectRefRef RefId="M-00FA_A-0001-0D-0000_O-172_R-172" />
-                <ComObjectRefRef RefId="M-00FA_A-0001-0D-0000_O-173_R-173" />
-                <ComObjectRefRef RefId="M-00FA_A-0001-0D-0000_O-174_R-174" />
-                <ComObjectRefRef RefId="M-00FA_A-0001-0D-0000_O-175_R-175" />
-                <ComObjectRefRef RefId="M-00FA_A-0001-0D-0000_O-176_R-176" />
-                <ComObjectRefRef RefId="M-00FA_A-0001-0D-0000_O-177_R-177" />
-                <ComObjectRefRef RefId="M-00FA_A-0001-0D-0000_O-178_R-178" />
-                <ComObjectRefRef RefId="M-00FA_A-0001-0D-0000_O-179_R-179" />
-                <ComObjectRefRef RefId="M-00FA_A-0001-0D-0000_O-180_R-180" />
-                <ComObjectRefRef RefId="M-00FA_A-0001-0D-0000_O-181_R-181" />
-                <ComObjectRefRef RefId="M-00FA_A-0001-0D-0000_O-182_R-182" />
-                <ComObjectRefRef RefId="M-00FA_A-0001-0D-0000_O-183_R-183" />
-                <ComObjectRefRef RefId="M-00FA_A-0001-0D-0000_O-184_R-184" />
-                <ComObjectRefRef RefId="M-00FA_A-0001-0D-0000_O-185_R-185" />
-                <ComObjectRefRef RefId="M-00FA_A-0001-0D-0000_O-186_R-186" />
-                <ComObjectRefRef RefId="M-00FA_A-0001-0D-0000_O-187_R-187" />
-                <ComObjectRefRef RefId="M-00FA_A-0001-0D-0000_O-188_R-188" />
-                <ComObjectRefRef RefId="M-00FA_A-0001-0D-0000_O-189_R-189" />
-                <ComObjectRefRef RefId="M-00FA_A-0001-0D-0000_O-190_R-190" />
-                <ComObjectRefRef RefId="M-00FA_A-0001-0D-0000_O-191_R-191" />
-                <ComObjectRefRef RefId="M-00FA_A-0001-0D-0000_O-192_R-192" />
-                <ComObjectRefRef RefId="M-00FA_A-0001-0D-0000_O-193_R-193" />
-                <ComObjectRefRef RefId="M-00FA_A-0001-0D-0000_O-194_R-194" />
-                <ComObjectRefRef RefId="M-00FA_A-0001-0D-0000_O-195_R-195" />
-                <ComObjectRefRef RefId="M-00FA_A-0001-0D-0000_O-196_R-196" />
-                <ComObjectRefRef RefId="M-00FA_A-0001-0D-0000_O-197_R-197" />
-                <ComObjectRefRef RefId="M-00FA_A-0001-0D-0000_O-198_R-198" />
-                <ComObjectRefRef RefId="M-00FA_A-0001-0D-0000_O-199_R-199" />
-                <ComObjectRefRef RefId="M-00FA_A-0001-0D-0000_O-200_R-200" />
-                <ComObjectRefRef RefId="M-00FA_A-0001-0D-0000_O-201_R-201" />
               </ParameterBlock>
               <ParameterBlock Id="M-00FA_A-0001-0D-0000_PB-2" Name="Devices" Text="Geräte">
                 <ParameterRefRef RefId="M-00FA_A-0001-0D-0000_P-7_R-7" />
@@ -1188,24 +1008,6 @@
                 <ParameterRefRef RefId="M-00FA_A-0001-0D-0000_P-86_R-86" />
                 <ParameterRefRef RefId="M-00FA_A-0001-0D-0000_P-87_R-87" />
                 <ParameterRefRef RefId="M-00FA_A-0001-0D-0000_P-88_R-88" />
-                <ParameterRefRef RefId="M-00FA_A-0001-0D-0000_P-89_R-89" />
-                <ParameterRefRef RefId="M-00FA_A-0001-0D-0000_P-90_R-90" />
-                <ParameterRefRef RefId="M-00FA_A-0001-0D-0000_P-91_R-91" />
-                <ParameterRefRef RefId="M-00FA_A-0001-0D-0000_P-92_R-92" />
-                <ParameterRefRef RefId="M-00FA_A-0001-0D-0000_P-93_R-93" />
-                <ParameterRefRef RefId="M-00FA_A-0001-0D-0000_P-94_R-94" />
-                <ParameterRefRef RefId="M-00FA_A-0001-0D-0000_P-95_R-95" />
-                <ParameterRefRef RefId="M-00FA_A-0001-0D-0000_P-96_R-96" />
-                <ParameterRefRef RefId="M-00FA_A-0001-0D-0000_P-97_R-97" />
-                <ParameterRefRef RefId="M-00FA_A-0001-0D-0000_P-98_R-98" />
-                <ParameterRefRef RefId="M-00FA_A-0001-0D-0000_P-99_R-99" />
-                <ParameterRefRef RefId="M-00FA_A-0001-0D-0000_P-100_R-100" />
-                <ParameterRefRef RefId="M-00FA_A-0001-0D-0000_P-101_R-101" />
-                <ParameterRefRef RefId="M-00FA_A-0001-0D-0000_P-102_R-102" />
-                <ParameterRefRef RefId="M-00FA_A-0001-0D-0000_P-103_R-103" />
-                <ParameterRefRef RefId="M-00FA_A-0001-0D-0000_P-104_R-104" />
-                <ParameterRefRef RefId="M-00FA_A-0001-0D-0000_P-105_R-105" />
-                <ParameterRefRef RefId="M-00FA_A-0001-0D-0000_P-106_R-106" />
               </ParameterBlock>
             </ChannelIndependentBlock>
           </Dynamic>
